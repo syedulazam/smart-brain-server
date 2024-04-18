@@ -51,9 +51,7 @@ const database = {
 };
 
 app.get("/", (req, res) => {
-  db.select("*")
-    .from("users")
-    .then((response) => res.json(response[0]));
+  res.send("it's working");
 });
 
 // bcrypt.hash(password, null, null, function (err, hash) {
@@ -76,8 +74,8 @@ app.put("/image", (req, res) => {
   image.handleImage(req, res, db);
 });
 
-app.listen(3000, () => {
-  console.log("the app is running in port 3000");
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`"the app is running in port ${process.env.PORT}"`);
 });
 
 module.exports = db; // Exporting db object
