@@ -1,0 +1,33 @@
+<!--
+
+    -> Setting up our server <-
+
+    1. Signin - We will be using a post request. (Reason- Because of the fact that ur signin details will not be visible in the search bar althouhh post
+                request is normally meant to store data)
+    2. Register - We will be using POST request for this as well (Reason - Because we are tring to store data into the database)
+    3. /profile/:userID - We will be using a GET request for this one (Reason - We are trying to retrieve information)
+    4. Image (Rank) - We will be using PUT request for this (Reason - We are tring to update the rank everytime we have posted more number of images than someone else)
+    
+    -- res = It is working
+    -- signin = POST = success/fail
+    -- register = POST = user
+    -- /profile/userID = GET = user
+    -- image (rank) = PUT = user
+   
+    -> Sign in and register <-
+
+    1. Instead of a database, we have used variables to store the objects, because we didn't learn how to create a database. But there is an isssue with this methpd.
+       Firstly, since we used variables, we need to loop through all the objects. Secondly, when we tried to access the database from the root directory ("/"), 
+       whatever information we registered and sent in postman didn't appear in the database in the root directory. The reason behind this is that we made a change to the
+       root directory to return the database, which wasn't there before. So we had to restart our server again (even though we used nodemon to automatically restart the 
+       server). Restart our server in the sense, we needed to resend (in postman) the new registration that we made and then rerun the request in the root directory. 
+
+    -> Storing and passwords <-
+
+    1. There are two ways to encrypt the password. One way is by using hash map and the other way is by using the library bcrypt. When using the hash map, we encrypt the
+       password with random characters. But then, this jumbling of words will be the same for that password no matter how many times we send the password. But in the 
+       case of the use of the bcrypt library, the password is encrypted with jumbled characters differently everytime we try to send the password even id it is the same
+       password we are tryng to send. 
+
+    2. The hashed code will appear in your server (cmd)
+-->
